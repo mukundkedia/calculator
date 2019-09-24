@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      
+      <link rel="stylesheet" type="text/css" href="style.css">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+      
+
+    <title>Calculator</title>
+  </head>
+  <body>
+      <div class="container">
+      <h1> Calculator</h1></div>
+      <div class="main">
+          <form name="form">
+          <input class="text" name="text"  onKeyPress="enterpressalert(event, this)">
+            </form>
+          <table>
+          <tr>
+              <td><input class="button" type="button" value="C" onclick="cleartext()"></td>
+              <td><input class="button" type="button" value="<" onclick="backspace()"></td>
+              <td><input class="button" type="button" value="*" onclick="addelement(this.value)"></td>
+              <td><input class="button" type="button" value="/" onclick="addelement(this.value)"></td>
+          </tr>
+           <tr>
+              <td><input class="button" type="button" value="1" onclick="addelement(this.value)"></td>
+              <td><input class="button" type="button" value="2" onclick="addelement(this.value)"></td>
+              <td><input class="button" type="button" value="3" onclick="addelement(this.value)"></td>
+              <td><input class="button" type="button" value="-" onclick="addelement(this.value)"></td>
+          </tr>
+           <tr>
+              <td><input class="button" type="button" value="4" onclick="addelement(this.value)"></td>
+              <td><input class="button" type="button" value="5" onclick="addelement(this.value)"></td>
+              <td><input class="button" type="button" value="6" onclick="addelement(this.value)"></td>
+              <td rowspan="2"><input class="button" type="button" value="+"  style="height: 126px" onclick="addelement(this.value)"></td>
+          </tr>
+            <tr>
+              <td><input class="button" type="button" value="7"  onclick="addelement(this.value)"></td>
+              <td><input class="button" type="button" value="8" onclick="addelement(this.value)"></td>
+              <td><input class="button" type="button" value="9" onclick="addelement(this.value)"></td>
+              
+          </tr>
+               <tr>
+              <td colspan="2" ><input class="button" type="button" value="0" style="width: 126px"  onclick="addelement(this.value)"></td>
+              <td><input class="button" type="button" value="." onclick="addelement(this.value)"></td>
+                   <td><input class="button" type="button" value="=" onclick="result()"></td>
+              </tr>
+              
+          </table>
+      </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script>
+      function addelement(num){
+          document.form.text.value=document.form.text.value + num;
+      }
+        function cleartext(){
+            document.form.text.value = null;
+            }
+        function result(){
+            var a = document.form.text.value;
+            if(a)
+            document.form.text.value = eval(a);
+        }
+    
+        function backspace(){
+            var a=document.form.text.value;
+            document.form.text.value = a.substring(0,a.length-1);
+        }
+        
+        function enterpressalert(e, textarea){
+var code = (e.keyCode ? e.keyCode : e.which);
+if(code == 13) { //Enter keycode
+ result();
+}
+}
+
+      </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+</html>
